@@ -26,3 +26,5 @@ Route::post('/signup', [SignupController::class, 'signup']);
 Route::post('/signin', [SigninController::class, 'signin']);
 Route::post('/profile/update/{id}', [ProfileController::class, 'update'])->middleware('pass');
 Route::post('/book_appointment', [SigninController::class, 'store'])->middleware('pass');
+Route::get('/view_appointment', [ProfileController::class, 'index'])->middleware('doctor');
+

@@ -14,6 +14,7 @@ class SignupController extends Controller
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:6',
+            'is_doctor' => 'boolean',
         ]);
 
         if ($validator->fails()) {
@@ -24,9 +25,8 @@ class SignupController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
+            'is_doctor' => $request->input('is_doctor'),
         ]);
-
-
         return response()->json(['message' => 'User registered successfully'], 201);
     }
 }

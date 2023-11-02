@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,4 +39,11 @@ class ProfileController extends Controller
 
         return response()->json(['message' => 'User updated succefully'], 200);
     }
+
+    public function index()
+    {
+        $appointment = Appointment::all();
+        return response()->json(['data' => $appointment], 200);
+    }
+
 }
